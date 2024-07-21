@@ -173,11 +173,6 @@
                   </div>
                 </div>
               </div>
-              
-              <div
-                class="top-0 my-auto text-center col-6 d-lg-flex d-none h-100 pe-0 position-absolute end-0 justify-content-center flex-column"
-                style="background-image: url(https://i.imgur.com/8RR42Z8.png); background-position: center; background-size: cover;">
-              </div>
             </div>
           </div>
         </div>
