@@ -160,11 +160,6 @@
         name: 'dwi',
         password: '123',
       },
-        listImg: [
-          {
-            logo: "https://stechoq.com/wp-content/uploads/2022/06/stechoq-logo.png",
-          },
-        ],
     }),
     methods: {
       //...mapActions(d$auth, ['a$login']),
