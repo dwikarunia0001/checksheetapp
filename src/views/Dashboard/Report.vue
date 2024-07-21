@@ -128,10 +128,6 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="top-0 my-auto text-center col-6 d-lg-flex d-none h-100 pe-0 position-absolute end-0 justify-content-center flex-column"
-                style="background-image: url(https://i.imgur.com/8RR42Z8.png); background-position: center; background-size: cover;">
-              </div>
             </div>
           </div>
         </div>
@@ -167,8 +163,6 @@
         listImg: [
           {
             logo: "https://stechoq.com/wp-content/uploads/2022/06/stechoq-logo.png",
-            sply1: "https://miamifilmfestival.com/wp-content/uploads/2020/01/Sponsors-Toyota-Logo-300x300.png",
-            sply2: "https://i.pinimg.com/474x/b5/1c/3b/b51c3b229f78e799eeacc89ac9f03489.jpg"
           },
         ],
     }),
