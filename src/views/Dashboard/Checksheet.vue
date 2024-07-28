@@ -32,7 +32,7 @@
                         <argon-input type="text" placeholder="Part Number" name="partnumber" size="sm" />
                       </div>
                       <div class="text-center">
-                        <RouterLink to="/checksheet/checksheet-detail"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Search
+                        <RouterLink to="/checksheet/checksheet-detail-insp"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Search
                         </argon-button></RouterLink>
                       </div>
                     </form>

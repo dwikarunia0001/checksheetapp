@@ -48,9 +48,9 @@ import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
 import { mapActions } from 'pinia';
 import d$auth from '@/stores/auth';
-import { certCookies } from "@/plugins/cookies";
+//import { certCookies } from "@/plugins/cookies";
 
-const { id } = certCookies();
+//const { id } = certCookies();
 
 export default {
   name: "SidenavList",
@@ -59,7 +59,7 @@ export default {
   },
   data() {
     return {
-      signed: id,
+      //signed: id,
       title: "Argon Dashboard 2",
       controls: "dashboardsExamples",
       isActive: "active"
@@ -70,10 +70,12 @@ export default {
     SidenavCard
   },
   methods: {
+    
     getRoute() {
       const routeArr = this.$route.path.split("/");
       return routeArr[1];
     },
+    /*
     ...mapActions(d$auth, ['a$logout']),
     logout() {
       try {
@@ -83,6 +85,7 @@ export default {
         console.log(e);
       }
     },
+    */
   }
 };
 </script>

@@ -48,7 +48,7 @@
                               <td>5</td>
                               <td>Scratch</td>
                               <td>
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
+                                <RouterLink to="/recentchecksheet/recent-checksheet-detail"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
                                 </argon-button></RouterLink>
                               </td>
                             </tr>
@@ -68,7 +68,7 @@
                               <td>5</td>
                               <td>Scratch</td>
                               <td>
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
+                                <RouterLink to="/recentchecksheet/recent-checksheet-detail"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
                                 </argon-button></RouterLink>
                               </td>
                             </tr>
@@ -88,7 +88,7 @@
                               <td>5</td>
                               <td>Scratch</td>
                               <td>
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
+                                <RouterLink to="/recentchecksheet/recent-checksheet-detail"><argon-button variant="gradient" color="primary" style="weight: 10px;">Detail
                                 </argon-button></RouterLink>
                               </td>
                             </tr>

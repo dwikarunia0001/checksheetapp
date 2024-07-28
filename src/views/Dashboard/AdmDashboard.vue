@@ -7,7 +7,11 @@
                 <section class="row mb-3">
                     <div class="col-12">
                         <div class="d-flex justify-content-between bg-white pt-3 ps-3 pe-3 shadow" style="height: 60px">
-                            <p class="fw-bolder" style="color: #596EAF">DASHBOARD</p>
+                          <div class="d-flex flex-row text-center gap-3">
+                            <RouterLink to="/admdashboard">Dashboard</RouterLink>
+                            <RouterLink to="/checkpoint">Checkpoint</RouterLink>
+                            <RouterLink to="/checkpoint/checkpoint-list">Checkpoint List</RouterLink>
+                          </div>
                             <div class="d-flex flex-col gap-2 align-items-start">
                                 <div>
                                     <p class="fst-italic fw-bold">Welcome Admin</p>

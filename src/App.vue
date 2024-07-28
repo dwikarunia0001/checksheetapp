@@ -17,6 +17,7 @@ Coded by www.creative-tim.com
     v-show="this.$store.state.layout === 'landing'"
     class="landing-bg h-100 bg-light position-fixed w-100"
   ></div>
+  <!--
   <sidenav
     :custom_class="this.$store.state.mcolor"
     :class="[
@@ -25,6 +26,7 @@ Coded by www.creative-tim.com
     ]"
     v-if="this.$store.state.showSidenav"
   />
+  -->
   <main
     class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
   >

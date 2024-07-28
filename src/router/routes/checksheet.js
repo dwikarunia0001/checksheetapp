@@ -9,9 +9,9 @@ const checksheet = {
             //meta: { auth: true },
         },
         {
-            path: "checksheet-detail",
-            name: "ChecksheetDetail",
-            component: () => import('@/views/Dashboard/ChecksheetDetail.vue'),
+            path: "checksheet-detail-insp",
+            name: "ChecksheetDetailInsp",
+            component: () => import('@/views/Dashboard/ChecksheetDetailInsp.vue'),
             //meta: { auth: true },
         },
     ],

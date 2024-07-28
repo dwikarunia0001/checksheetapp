@@ -9,7 +9,7 @@ const recentchecksheet = {
             //meta: { auth: true },
         },
         {
-            path: "recentchecksheet-detail",
+            path: "recent-checksheet-detail",
             name: "Recent Checksheet Detail",
             component: () => import('@/views/Dashboard/RecentChecksheetDetail.vue'),
             //meta: { auth: true },

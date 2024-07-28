@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="text-center">
-                      <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Sign in
+                      <RouterLink to="/dashboard"><argon-button  class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Sign in
                       </argon-button></RouterLink>
                     </div>
                   </form>
@@ -45,7 +45,9 @@ import Navbar from "@/examples/PageLayout/Navbar.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import { useRouter } from "vue-router";
 const body = document.getElementsByTagName("body")[0];
+const router = useRouter();
 
 export default {
   name: "signin",
@@ -71,6 +73,9 @@ export default {
   }),
   methods: {
     //...mapActions(d$auth, ['a$login']),
+    Login() {
+      this.$router.push('/dashboard')
+    },
     async submitLogin() {
       try {
         //await this.a$login({ ...this.input });
