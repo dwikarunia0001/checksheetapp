@@ -10,7 +10,7 @@
                           <p class="fw-bolder" style="color: #596EAF">DASHBOARD</p>
                           <div class="d-flex flex-col gap-2 align-items-start">
                               <div>
-                                  <p class="fst-italic fw-bold">Welcome Dwi</p>
+                                  <p class="fst-italic fw-bold">Welcome Inspector</p>
                                   <!--<p class="mt-n4 fst-italic fw-lighter">Finish Good</p>-->
                               </div>
                               <!--<img src="/src/assets/img/dcs-logo.png" alt="logo" width="50" height="35" class="pt-2">-->
