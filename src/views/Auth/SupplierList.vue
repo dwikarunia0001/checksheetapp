@@ -18,7 +18,7 @@
 
         <div class="row ms-4">
           <div class="col-3">
-            <RouterLink class="btn btn-lg mt-5 text-start px-3" style="background-color: #FCA311; color: black;" to="/auth/signin">Sign In</RouterLink>
+            <RouterLink class="btn btn-lg mt-5 text-start px-3" style="background-color: #FCA311; color: black;" to="/auth/role">Sign In</RouterLink>
           </div>
         </div>
       </div>
