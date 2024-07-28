@@ -5,6 +5,7 @@ import report from './report';
 import admdashboard from './admdashboard';
 import checkpoint from './checkpoint';
 import recentchecksheet from './recentchecksheet';
+import spvdashboard from './spvdashboard';
 
 
 const routes = [
@@ -14,7 +15,8 @@ const routes = [
   report,
   admdashboard,
   checkpoint,
-  recentchecksheet
+  recentchecksheet,
+  spvdashboard
 ];
 
 export default routes;

@@ -9,6 +9,7 @@ const router = createRouter({
   routes,
 });
 
+/*
 router.beforeEach((to, from, next) => {
   const { id } = certCookies();
   if (to.matched.some(({ meta }) => meta.auth) && !id) {
@@ -19,6 +20,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
+*/
 
 export default router;

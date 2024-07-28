@@ -3,6 +3,7 @@
     class="collapse navbar-collapse w-auto h-auto h-100"
     id="sidenav-collapse-main"
   >
+    
     <ul class="navbar-nav">
       <li class="nav-item">
         <sidenav-item
@@ -23,19 +24,6 @@
         >
           <template v-slot:icon>
             <i class="ni ni-check-bold text-primary text-sm opacity-10"></i>
-          </template>
-        </sidenav-item>
-      </li>
-      <li class="nav-item">
-        <sidenav-item
-          url="/report"
-          :class="getRoute() === 'tables' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'الجداول' : 'Report'"
-        >
-          <template v-slot:icon>
-            <i
-              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
-            ></i>
           </template>
         </sidenav-item>
       </li>

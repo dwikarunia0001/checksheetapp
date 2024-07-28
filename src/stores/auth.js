@@ -12,9 +12,10 @@ const d$auth = defineStore({
     async a$setUser() {
       try {
         const { password, name } = certCookies();
-        this.password = 123;
-        this.name = dwi;
+        this.password;
+        this.name;
         return 'User Authenticated!';
+        
       } catch ({ message }) {
         this.password = undefined;
         this.name = undefined;
