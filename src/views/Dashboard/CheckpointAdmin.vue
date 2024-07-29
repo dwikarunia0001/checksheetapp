@@ -76,8 +76,8 @@
   </template>
   
   <script>
-  import { mapActions } from 'pinia';
-  import d$auth from '@/stores/auth';
+  import { mapActions} from 'pinia';
+  import store$admin from '@/stores/admin.js';
   
   import Navbar from "@/examples/PageLayout/Navbar.vue";
   import ArgonInput from "@/components/ArgonInput.vue";
@@ -116,30 +116,23 @@
         ],
     }),
     methods: {
-      //...mapActions(d$auth, ['a$login']),
+      //upload inputan checksheet
+      ...mapActions(store$admin, ['store$uploadcheckpoint']),
       async checkpointSubmit(e){
             try {
                 e.preventDefault()
                 // const formData = new FormData();
 
                 // formData.append('avatar',this.fileUpload)
-                //await this.a$upload(this.fileUpload); //abis itu panggil actions store buat kirim file ke server
+                await this.store$uploadcheckpoint(this.input); //abis itu panggil actions store buat kirim file ke server
                 alert(`File uploaded! success`);
                 this.$router.push('/checkpoint/checkpoint-list')
-                // console.log(formData)
             } catch (error) {
                 alert(`Error!\n${e.message}`);
+                console.log(this.input)
             }
         },
-      async submitLogin() {
-        try {
-          //await this.a$login({ ...this.input });
-          //this.$router.replace({ name: 'Default' });
-          location.replace("/dashboard");
-        } catch (e) {
-          console.error(e);
-        }
-      },
+
     },
     created() {
       this.$store.state.hideConfigButton = true;

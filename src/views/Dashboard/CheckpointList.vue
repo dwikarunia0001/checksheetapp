@@ -73,17 +73,17 @@
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>Machining</td>
-                              <td>Takisawa TC2000</td>
-                              <td>Oil Lock Piece</td>
-                              <td>OLPK122</td>
-                              <td>122</td>
-                              <td>3</td>
-                              <td>Total Panjang</td>
-                              <td>Gauge</td>
-                              <td>L = 288.0</td>
-                              <td>IMG</td>
+                            <tr v-for="(item, index) in g$fakeListCheckpoint" :key="index">
+                              <td>{{ item.operation }}</td>
+                              <td>{{ item.workcenter }}</td>
+                              <td>{{ item.partfamily }}</td>
+                              <td>{{ item.partname }}</td>
+                              <td>{{ item.partnumber }}</td>
+                              <td>{{ item.checkpointseriesnumber }}</td>
+                              <td>{{ item.checkpoint }}</td>
+                              <td>{{ item.methode }}</td>
+                              <td>{{ item.standard }}</td>
+                              <td>{{ item.drawing }}</td>
                               <td>
                                 <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Update
                                 </argon-button></RouterLink>
@@ -112,8 +112,9 @@
   </template>
   
   <script>
-  import { mapActions } from 'pinia';
-  import d$auth from '@/stores/auth';
+  import { mapActions, mapState } from 'pinia';
+  import store$admin from '@/stores/admin.js';
+  //import d$auth from '@/stores/auth';
   
   import Navbar from "@/examples/PageLayout/Navbar.vue";
   import ArgonInput from "@/components/ArgonInput.vue";
@@ -143,6 +144,9 @@
           },
         ],
     }),
+    computed: {
+        ...mapState(store$admin, ['g$fakeListCheckpoint']),
+    },
     methods: {
       //...mapActions(d$auth, ['a$login']),
       async submitLogin() {
