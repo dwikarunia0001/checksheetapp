@@ -10,57 +10,57 @@
                     <h4 class="font-weight-bolder">Checkpoint</h4>
                   </div>
                   <div class="card-body pt-2">
-                    <form role="form">
+                    <form role="form" @submit="checkpointSubmit">
                     <div class="d-flex flex-row justify-content-between gap-2 pt-3">
                     <div class="w-50 d-flex flex-column">
-                      <label for="username">Operation</label>
+                      <label for="operation">Operation</label>
                       <div class="mb-0">
-                        <argon-input type="text" placeholder="Username" name="username" size="sm" />
+                        <argon-input v-model="input.operation" type="text" placeholder="Operation" name="operation" size="sm" />
                       </div>
-                      <label for="password">Work Center</label>
+                      <label for="workcenter">Work Center</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Work Center" name="workcenter" size="sm" />
+                        <argon-input v-model="input.workcenter" type="text" placeholder="Work Center" name="workcenter" size="sm" />
                       </div>
-                      <label for="part-family">Part Family</label>
+                      <label for="partfamily">Part Family</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Family" name="partfamily" size="sm" />
+                        <argon-input v-model="input.partfamily" type="text" placeholder="Part Family" name="partfamily" size="sm" />
                       </div>
-                      <label for="part-family">Part Name</label>
+                      <label for="partname">Part Name</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Name" name="partname" size="sm" />
+                        <argon-input v-model="input.partname" type="text" placeholder="Part Name" name="partname" size="sm" />
                       </div>
-                      <label for="part-family">Part Number</label>
+                      <label for="partnumber">Part Number</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Number" name="partnumber" size="sm" />
+                        <argon-input v-model="input.partnumber" type="text" placeholder="Part Number" name="partnumber" size="sm" />
                       </div>
                     </div>
                     <div class="w-50 d-flex flex-column">
-                      <label for="username">Checkpoint</label>
+                      <label for="checkpoint">Checkpoint</label>
                       <div class="mb-0">
-                        <argon-input type="text" placeholder="Checkpoint" name="username" size="sm" />
+                        <argon-input v-model="input.checkpoint" type="text" placeholder="Checkpoint" name="checkpoint" size="sm" />
                       </div>
-                      <label for="password">Methode</label>
+                      <label for="methode">Methode</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Methode" name="workcenter" size="sm" />
+                        <argon-input v-model="input.methode" type="text" placeholder="Methode" name="methode" size="sm" />
                       </div>
-                      <label for="part-family">Standard</label>
+                      <label for="standard">Standard</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Standard" name="partfamily" size="sm" />
+                        <argon-input v-model="input.standard" type="text" placeholder="Standard" name="standard" size="sm" />
                       </div>
-                      <label for="part-family">Checkpoint Series Number</label>
+                      <label for="checkpointseriesnumber">Checkpoint Series Number</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Checkpoint Series Number" name="partname" size="sm" />
+                        <argon-input v-model="input.checkpointseriesnumber" type="text" placeholder="Checkpoint Series Number" name="checkpointseriesnumber" size="sm" />
                       </div>
-                      <label for="part-family">Drawing</label>
+                      <label for="drawing">Drawing</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Drawing" name="partname" size="sm" />
+                        <argon-input v-model="input.drawing" type="file" placeholder="Drawing" name="drawing" size="sm" />
                       </div>
                     </div>
                     
                     </div>
                     <div class="text-center">
-                        <RouterLink to="/checkpoint/checkpoint-list"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Submit
-                        </argon-button></RouterLink>
+                        <RouterLink to="/checkpoint/checkpoint-list"></RouterLink><argon-button type="submit" class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Submit
+                        </argon-button>
                       </div>
                     </form>
                   </div>
@@ -96,8 +96,16 @@
     data: () => ({
       // input
       input: {
-        name: 'dwi',
-        password: '123',
+        operation: 'Machining',
+        workcenter: 'Headman T-35',
+        partfamily: 'Cylinder',
+        partname: 'Cylinder 12201-40755',
+        partnumber: '12201-40755',
+        checkpoint: 'Visual',
+        methode: 'Visual',
+        standard: 'No Scratch',
+        checkpointseriesnumber: '1',
+        drawing:''
       },
         listImg: [
           {
@@ -109,6 +117,20 @@
     }),
     methods: {
       //...mapActions(d$auth, ['a$login']),
+      async checkpointSubmit(e){
+            try {
+                e.preventDefault()
+                // const formData = new FormData();
+
+                // formData.append('avatar',this.fileUpload)
+                //await this.a$upload(this.fileUpload); //abis itu panggil actions store buat kirim file ke server
+                alert(`File uploaded! success`);
+                this.$router.push('/checkpoint/checkpoint-list')
+                // console.log(formData)
+            } catch (error) {
+                alert(`Error!\n${e.message}`);
+            }
+        },
       async submitLogin() {
         try {
           //await this.a$login({ ...this.input });
