@@ -11,9 +11,22 @@ const checkpoint = {
         {
             path: "checkpoint-list",
             name: "CheckpointList",
-            component: () => import('@/views/Dashboard/CheckpointList.vue'),
+            children: [
+                {
+                    path: "",
+                    name: "CheckpointList",
+                    component: () => import('@/views/Dashboard/CheckpointList.vue'),
+                },
+                {
+                    path: "edit-checkpoint-list/:id",
+                    name: "EditCheckpointList",
+                    component: () => import('@/views/Dashboard/EditCheckpointList.vue'),
+                    //meta: { auth: true },
+                }
+            ],
             //meta: { auth: true },
         },
+        
     ],
   };
   

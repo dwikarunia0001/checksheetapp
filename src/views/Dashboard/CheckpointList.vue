@@ -41,8 +41,8 @@
                               <td>Max 0.04</td>
                               <td>IMG</td>
                               <td>
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Update
-                                </argon-button></RouterLink>
+                                <argon-button @click="this.input.showFormEdit = true" variant="gradient" color="primary" style="weight: 10px;">Update
+                                </argon-button>
                               </td>
                               <td>
                                 <div class="text-center">
@@ -85,17 +85,16 @@
                               <td>{{ item.standard }}</td>
                               <td>{{ item.drawing }}</td>
                               <td>
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="primary" style="weight: 10px;">Update
+                                <RouterLink :to="{name: 'EditCheckpointList', params: {id: item.id}}"><argon-button @click="sendCheckpointId(item.id)" variant="gradient" color="primary" style="weight: 10px;">Update
                                 </argon-button></RouterLink>
                               </td>
                               <td>
                                 <div class="text-center">
-                                <RouterLink to="/dashboard"><argon-button variant="gradient" color="warning" style="weight: 10px">Delete
-                                </argon-button></RouterLink>
+                                <argon-button @click="deleteCheckpointList(item.id)" variant="gradient" color="warning" style="weight: 10px">Delete
+                                </argon-button>
                                 </div>
                               </td>
                             </tr>
-                            
                           </tbody>
                         </table>
                     </div>
@@ -103,6 +102,8 @@
                   </div>
                 </div>
               </div>
+
+              
             </div>
           </div>
         </div>
@@ -133,7 +134,7 @@
     data: () => ({
       // input
       input: {
-        name: 'dwi',
+        showFormEdit: 'false',
         password: '123',
       },
         listImg: [
@@ -148,16 +149,29 @@
         ...mapState(store$admin, ['g$fakeListCheckpoint']),
     },
     methods: {
-      //...mapActions(d$auth, ['a$login']),
-      async submitLogin() {
+      ...mapActions(store$admin, ['store$deleteCheckpointList']),
+      async deleteCheckpointList(id) {
         try {
-          //await this.a$login({ ...this.input });
-          //this.$router.replace({ name: 'Default' });
-          location.replace("/dashboard");
+          await this.store$deleteCheckpointList(id);
+          alert('delete true')
+          this.$router.push('/checkpoint/checkpoint-list')
+          //location.replace("/dashboard");
         } catch (e) {
           console.error(e);
         }
       },
+      ...mapActions(store$admin, ['store$getCheckpointById']),
+        async sendCheckpointId(id) {
+                try {
+                  await this.store$getCheckpointById(id)
+                  alert('send id checkpoint for edit')
+                  //await this.a$editWO(this.$route.params.id, this.input.operation, this.input.workcenter);
+                  //this.$router.replace({name: 'CheckpointList'});
+                  //console.log(this.input.operation)
+                } catch (e) {
+                    console.error(e);
+                }
+        },
     },
     created() {
       this.$store.state.hideConfigButton = true;

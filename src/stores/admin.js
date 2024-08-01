@@ -10,6 +10,7 @@ const store$admin = defineStore({
        listLabelBox: [],
        fakeListCheckpoint: [
           {
+            "id": 1,
             "operation": 'Machining',
             "workcenter": 'Headman T-35',
             "partfamily": 'Cylinder',
@@ -19,9 +20,10 @@ const store$admin = defineStore({
             "methode": 'Visual',
             "standard": 'No Scratch',
             "checkpointseriesnumber": '1',
-            "drawing":'https://images.pexels.com/photos/7254428/pexels-photo-7254428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            "drawing":'img.jpg'
           }
        ],
+       fakeListCheckpointById: [],
        fakeDetailWO: [
         {
             "id": 3,
@@ -63,6 +65,36 @@ const store$admin = defineStore({
                 console.error('actions upload error', e);
             }
         },
+        async store$deleteCheckpointList(id) {
+            try {
+              // const data = await s$production.editDetailWO(body); // mengirim body ke services
+              // console.log('EDITT=', data);
+              /*
+              if (this.fakeDetailWO.find(item => item.id == id)) {
+                return this.fakeDetailWO.find(item => item.total_order = body)
+              }
+              */
+              var foundIndex = this.fakeListCheckpoint.findIndex(x => x.id == id);
+              this.fakeListCheckpoint.splice(foundIndex, 1)
+              //this.fakeListCheckpoint[foundIndex].workcenter = workcenter
+              console.log(this.fakeListCheckpoint);
+
+            } catch (e) {
+              console.error('actions todo list error', e);
+              console.log(body);
+              throw e;
+            }
+        },
+        async store$getCheckpointById(id) {
+            try {
+                var foundIndex = this.fakeListCheckpoint.findIndex(x => x.id == id);
+                this.fakeListCheckpointById.push(this.fakeListCheckpoint[foundIndex])
+              //this.fakeListCheckpoint[foundIndex].workcenter = workcenter
+              console.log(this.fakeListCheckpointById);
+            } catch (error) {
+                console.error('actions upload error', e);
+            }
+        },
         // buat actions get list history work order 
         async a$listWO() {
             try {
@@ -87,7 +119,7 @@ const store$admin = defineStore({
         },
 
         // actions edit detail work order
-        async a$editWO(id, body) {
+        async a$editCheckpointList(id, data) {
             try {
               // const data = await s$production.editDetailWO(body); // mengirim body ke services
               // console.log('EDITT=', data);
@@ -96,12 +128,22 @@ const store$admin = defineStore({
                 return this.fakeDetailWO.find(item => item.total_order = body)
               }
               */
-              var foundIndex = this.fakeDetailWO.findIndex(x => x.id == id);
-              this.fakeDetailWO[foundIndex].total_order = body;
-              this.fakeDetailWO[foundIndex].total_box = body/10
+              var foundIndex = this.fakeListCheckpoint.findIndex(x => x.id == id);
+              this.fakeListCheckpoint[foundIndex].operation = data.operation;
+              
+              this.fakeListCheckpoint[foundIndex].workcenter = data.workcenter;
+              this.fakeListCheckpoint[foundIndex].partfamily = data.partfamily;
+              this.fakeListCheckpoint[foundIndex].partname = data.partname;
+              this.fakeListCheckpoint[foundIndex].partnumber = data.partnumber;
+              this.fakeListCheckpoint[foundIndex].checkpoint = data.checkpoint;
+              this.fakeListCheckpoint[foundIndex].methode = data.methode;
+              this.fakeListCheckpoint[foundIndex].standard = data.standard;
+              this.fakeListCheckpoint[foundIndex].checkpointseriesnumber = data.checkpointseriesnumber;
+              this.fakeListCheckpoint[foundIndex].drawing = data.drawing;
+
             } catch (e) {
               console.error('actions todo list error', e);
-              console.log(body);
+              console.log(data.operation)
               throw e;
             }
         },
@@ -120,6 +162,10 @@ const store$admin = defineStore({
     },
     getters: {
         g$fakeListCheckpoint: ({ fakeListCheckpoint }) => fakeListCheckpoint,
+        getDetail: ({ fakeListCheckpoint }) => {
+            return (id) => fakeListCheckpoint.find((a) => a.id == id);
+        },
+        g$fakeListCheckpointById: ({ fakeListCheckpointById }) => fakeListCheckpointById,
         // checkpointadminend
         g$listWO: ({ listWOFile }) => listWOFile,
         g$listWO: ({ listWOFile }) => listWOFile,

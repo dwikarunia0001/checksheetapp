@@ -13,11 +13,11 @@
                     <form role="form">
                       <label for="username">Username</label>
                       <div class="mb-0">
-                        <argon-input type="text" placeholder="Username" name="username" size="lg" />
+                        <argon-input v-model="input.name" type="text" placeholder="Username" name="username" size="lg" />
                       </div>
                       <label for="password">Password</label>
                       <div class="mb-4">
-                        <argon-input type="password" placeholder="Password" name="password" size="lg" />
+                        <argon-input v-model="input.password" type="password" placeholder="Password" name="password" size="lg" />
                       </div>
   
                       <div class="text-center">
@@ -60,8 +60,8 @@
     data: () => ({
       // input
       input: {
-        name: 'dwi',
-        password: '123',
+        name: 'inspector',
+        password: 'inspector123',
       },
         listImg: [
           {

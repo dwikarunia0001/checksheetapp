@@ -96,6 +96,7 @@
     data: () => ({
       // input
       input: {
+        id: Math.random(),
         operation: 'Machining',
         workcenter: 'Headman T-35',
         partfamily: 'Cylinder',
