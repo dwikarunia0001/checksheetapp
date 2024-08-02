@@ -11,7 +11,7 @@
                   </div>
                   <div class="card-body pt-2" >
                     <form role="form" class="d-flex flex-column gap-3" id="element-to-convert">
-                      <img src="../../assets/img/bubut.jpg" alt="drawing" class="img-fluid">
+                      <img src="../../assets/img/Drawing (2).jpeg" alt="drawing" class="img-fluid" style="height: 25;">
                       <table class="mt-3 w-100 table-bordered">
                         <tbody>
                           <tr>
@@ -122,7 +122,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>OK</td>
+                            <th style="background-color: #afe1af;">OK</th>
                             <td>30</td>
                             <td>Maryono</td>
                             <td>Aris</td>
