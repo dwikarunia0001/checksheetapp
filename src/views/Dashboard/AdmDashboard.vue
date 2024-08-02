@@ -11,9 +11,11 @@
                             <RouterLink to="/admdashboard">Dashboard</RouterLink>
                             <RouterLink to="/checkpoint">Checkpoint</RouterLink>
                             <RouterLink to="/checkpoint/checkpoint-list">Checkpoint List</RouterLink>
+              
                           </div>
-                            <div class="d-flex flex-col gap-2 align-items-start">
-                                <div>
+                            <div >
+                                <div class="d-flex flex-row gap-2 align-items-start">
+                                  <RouterLink to="/">Logout</RouterLink>
                                     <p class="fst-italic fw-bold">Welcome Admin</p>
                                     <!--<p class="mt-n4 fst-italic fw-lighter">Finish Good</p>-->
                                 </div>

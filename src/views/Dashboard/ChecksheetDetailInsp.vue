@@ -33,19 +33,19 @@
                           <div class="d-flex flex-column">
                             <label for="shift">Shift</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Shift" name="shift" size="lg" />
+                              <argon-input v-model="input.shift" type="text" placeholder="Shift" name="shift" size="lg" />
                             </div>
                           </div>
                           <div class="d-flex flex-column">
                             <label for="hour">Hour</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Hour" name="hour" size="lg" />
+                              <argon-input v-model="input.hour" type="text" placeholder="Hour" name="hour" size="lg" />
                             </div>
                           </div>
                           <div class="d-flex flex-column">
                             <label for="customer">Customer</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Customer" name="customer" size="lg" />
+                              <argon-input v-model="input.customer" type="text" placeholder="Customer" name="customer" size="lg" />
                             </div>
                           </div>
                         </div>
@@ -53,19 +53,19 @@
                           <div class="d-flex flex-column">
                             <label for="manufacture-order">Manufacture Order</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Manufacture Order" name="manufacture-order" size="lg" />
+                              <argon-input v-model="input.manufactureorder" type="text" placeholder="Manufacture Order" name="manufacture-order" size="lg" />
                             </div>
                           </div>
                           <div class="d-flex flex-column">
                             <label for="manufacture-date">Manufacture Date</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Manufacture Date" name="manufacture-date" size="lg" />
+                              <argon-input v-model="input.manufacturedate" type="date" placeholder="Manufacture Date" name="manufacture-date" size="lg" />
                             </div>
                           </div>
                           <div class="d-flex flex-column">
                             <label for="doc-number">Document Number</label>
                             <div class="mb-0">
-                              <argon-input type="text" placeholder="Document Number" name="doc-number" size="lg" />
+                              <argon-input v-model="input.documentnumber" type="text" placeholder="Document Number" name="doc-number" size="lg" />
                             </div>
                           </div>
                         </div>
@@ -88,13 +88,13 @@
                               <td>Visual</td>
                               <td>Max 0.04</td>
                               <td>
-                                <input type="checkbox">
+                              <argon-input v-model="input.checkpointStatus1OK" type="text" placeholder=""  size="sm"/>
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus1NG" type="text" placeholder=""  size="sm" />
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus1Repair" type="text" placeholder=""  size="sm" />
                               </td>
                             </tr>
                             <tr>
@@ -102,13 +102,13 @@
                               <td>Visual</td>
                               <td>No Scratch</td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus2OK" type="text" placeholder=""  size="sm"/>
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus2NG" type="text" placeholder=""  size="sm" />
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus2Repair" type="text" placeholder=""  size="sm" />
                               </td>
                             </tr>
                             <tr>
@@ -116,13 +116,13 @@
                               <td>Gauge</td>
                               <td>L = 288.0</td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus3OK" type="text" placeholder=""  size="sm"/>
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus3NG" type="text" placeholder=""  size="sm" />
                               </td>
                               <td>
-                                <input type="checkbox">
+                                <argon-input v-model="input.checkpointStatus3Repair" type="text" placeholder=""  size="sm" />
                               </td>
                             </tr>
                           </tbody>
@@ -139,11 +139,11 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td>OK</td>
-                            <td>30</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><argon-input v-model="input.judgement_status" type="text" placeholder=""  size="sm" /></td>
+                            <td><argon-input v-model="input.judgement_qty" type="text" placeholder=""  size="sm" /></td>
+                            <td>Maryono</td>
+                            <td>Aris Priyanto</td>
+                            <td>Tutur Angger</td>
                           </tr>
                           <tr>
                             <td></td>
@@ -154,19 +154,24 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div class="d-flex flex-row gap-3">
+                      <div >
+                        <!--
+                        class="d-flex flex-row gap-3"
                         <div class="text-center">
                           <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="primary" fullWidth size="md">Save
                           </argon-button></RouterLink>
                         </div>
+                        -->
                         <div class="text-center">
-                          <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Submit
+                          <RouterLink to="/checksheet-list"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Submit
                           </argon-button></RouterLink>
                         </div>
+                        <!--
                         <div class="text-center">
                           <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="danger" fullWidth size="md">Cancel
                           </argon-button></RouterLink>
                         </div>
+                        -->
                       </div>
 
                     </form>
@@ -202,8 +207,29 @@
     data: () => ({
       // input
       input: {
-        name: 'dwi',
-        password: '123',
+        shift: 1,
+        hour: 7,
+        customer: 'KYB',
+        manufactureorder: 'MO65571',
+        manufacturedate: '2 Juli 2024',
+        documentnumber: 'QC/020724/1',
+        checkpointStatus1OK: '0.03',
+        checkpointStatus1NG: '-',
+        checkpointStatus1Repair: '-',
+        checkpointStatus2OK: 'OK',
+        checkpointStatus2NG: '-',
+        checkpointStatus2Repair: '-',
+        checkpointStatus3OK: '288.0',
+        checkpointStatus3NG: '-',
+        checkpointStatus3Repair: '-',
+        judgement_status: 'OK',
+        judgement_qty: '30',
+        supervisor_name: 'Maryono',
+        leader_name: 'Aris Priyanto',
+        inspector_name: 'Tutur',
+        supervisor_sign: 'Maryono',
+        leader_sign: 'Aris Priyanto',
+        inspector_sign: 'Tutur',
       },
         listImg: [
           {

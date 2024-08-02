@@ -139,11 +139,14 @@
                       </table>
                      
                     </form>
-                    <div class="d-flex flex-row gap-3">
+                    <div>
+                      <!--
+                       class="d-flex flex-row gap-3"
                         <div class="text-center">
                           <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="primary" fullWidth size="md">Approved
                           </argon-button></RouterLink>
                         </div>
+                        -->
                         <div class="text-center">
                           <argon-button @click="exportToPdf" class="mt-3 " variant="gradient" color="danger" fullWidth size="md">Export to PDF
                           </argon-button>

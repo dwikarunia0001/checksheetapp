@@ -138,10 +138,6 @@
                         </tbody>
                       </table>
                       
-                        <div class="text-center">
-                          <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="danger" fullWidth size="md">Export to PDF
-                          </argon-button></RouterLink>
-                        </div>
                       
   
                     </form>

@@ -11,8 +11,9 @@
                               <RouterLink to="/spvdashboard">Dashboard</RouterLink>
                               <RouterLink to="/recentchecksheet">Recent Checksheet</RouterLink>
                             </div>
-                            <div class="d-flex flex-col gap-2 align-items-start">
-                                <div>
+                            <div >
+                                <div class="d-flex flex-col gap-2 align-items-start">
+                                  <RouterLink to="/">Logout</RouterLink>
                                     <p class="fst-italic fw-bold">Welcome Supervisor</p>
                                     <!--<p class="mt-n4 fst-italic fw-lighter">Finish Good</p>-->
                                 </div>

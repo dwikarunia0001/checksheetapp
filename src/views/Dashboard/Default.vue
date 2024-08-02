@@ -12,10 +12,12 @@
                             <RouterLink to="/dashboard">Dashboard</RouterLink>
                             <RouterLink to="/checksheet">Checksheet</RouterLink>
                             <RouterLink to="/checksheet-list">Checksheet List</RouterLink>
+                            
                           </div>
-                          <div class="d-flex flex-col gap-2 align-items-start">
-                              <div>
-                                  <p class="fst-italic fw-bold">Welcome Inspector</p>
+                          <div >
+                              <div class="d-flex flex-row gap-2 align-items-start">
+                                <RouterLink to="/">Logout</RouterLink>
+                                <p class="fst-italic fw-bold">Welcome Inspector</p>
                                   <!--<p class="mt-n4 fst-italic fw-lighter">Finish Good</p>-->
                               </div>
                               <!--<img src="/src/assets/img/dcs-logo.png" alt="logo" width="50" height="35" class="pt-2">-->
