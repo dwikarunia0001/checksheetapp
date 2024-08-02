@@ -11,7 +11,7 @@
                   </div>
                   <div class="card-body pt-2" >
                     <form role="form" class="d-flex flex-column gap-3" id="element-to-convert">
-                      <img src="../../assets/img/Drawing (2).jpeg" alt="drawing" class="img-fluid" style="height: 25;">
+                      <img src="../../assets/img/drawing.jpeg" alt="drawing" class="img-fluid" style="height: 25;">
                       <table class="mt-3 w-100 table-bordered">
                         <tbody>
                           <tr>
