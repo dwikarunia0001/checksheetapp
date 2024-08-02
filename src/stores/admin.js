@@ -8,6 +8,7 @@ const store$admin = defineStore({
        listWOFile: [],
        detailWO: [],
        listLabelBox: [],
+       searchCheckpoint: [],
        fakeListCheckpoint: [
           {
             "id": 1,
@@ -93,6 +94,18 @@ const store$admin = defineStore({
               console.log(this.fakeListCheckpointById);
             } catch (error) {
                 console.error('actions upload error', e);
+            }
+        },
+        async store$searchChecksheetForm(data) {
+            try {
+                var foundIndex = this.fakeListCheckpoint.findIndex(x => x.operation == data.operation && x.workcenter == data.workcenter && x.partfamily == data.partfamily && x.partname == data.partname && x.partnumber == data.partnumber);
+                this.searchCheckpoint.push(this.fakeListCheckpoint[foundIndex])
+              console.log(data.operation)
+              console.log(this.searchCheckpoint)
+              alert('send data checksheet search test')
+            } catch (error) {
+                console.error('actions upload error', e);
+                console.log(data)
             }
         },
         // buat actions get list history work order 

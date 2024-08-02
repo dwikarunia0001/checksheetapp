@@ -9,9 +9,9 @@
                   <div class="pb-0 card-header text-center">
                     <h4 class="font-weight-bolder">Recent Checksheet Detail</h4>
                   </div>
-                  <div class="card-body pt-2">
-                    <form role="form" class="d-flex flex-column gap-3">
-                      <img src="https://images.pexels.com/photos/7254428/pexels-photo-7254428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="drawing" class="img-fluid">
+                  <div class="card-body pt-2" >
+                    <form role="form" class="d-flex flex-column gap-3" id="element-to-convert">
+                      <img src="../../assets/img/bubut.jpg" alt="drawing" class="img-fluid">
                       <table class="mt-3 w-100 table-bordered">
                         <tbody>
                           <tr>
@@ -137,17 +137,19 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div class="d-flex flex-row gap-3">
+                     
+                    </form>
+                    <div class="d-flex flex-row gap-3">
                         <div class="text-center">
                           <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="primary" fullWidth size="md">Approved
                           </argon-button></RouterLink>
                         </div>
                         <div class="text-center">
-                          <RouterLink to="/dashboard"><argon-button class="mt-3 " variant="gradient" color="danger" fullWidth size="md">Export to PDF
-                          </argon-button></RouterLink>
-                        </div>
+                          <argon-button @click="exportToPdf" class="mt-3 " variant="gradient" color="danger" fullWidth size="md">Export to PDF
+                          </argon-button>
                     </div>
-                    </form>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -167,6 +169,7 @@
   import ArgonInput from "@/components/ArgonInput.vue";
   import ArgonSwitch from "@/components/ArgonSwitch.vue";
   import ArgonButton from "@/components/ArgonButton.vue";
+  import html2pdf from "html-to-pdf-js";
   const body = document.getElementsByTagName("body")[0];
   
   export default {
@@ -192,6 +195,13 @@
         ],
     }),
     methods: {
+      exportToPdf(){
+        html2pdf(document.getElementById('element-to-convert'), {
+          filename: 'checksheet report',
+          image: { type: 'jpeg', quality: 0.98 },
+          margin: 1
+        })
+      },
       //...mapActions(d$auth, ['a$login']),
       async submitLogin() {
         try {

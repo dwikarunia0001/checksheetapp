@@ -10,30 +10,30 @@
                     <h4 class="font-weight-bolder">Checksheet</h4>
                   </div>
                   <div class="card-body pt-2">
-                    <form role="form">
-                      <label for="username">Operation</label>
+                    <form role="form" @submit="checksheetSearchForm">
+                      <label for="operation">Operation</label>
                       <div class="mb-0">
-                        <argon-input type="text" placeholder="Username" name="username" size="sm" />
+                        <argon-input v-model="input.operation" type="text" placeholder="Operation" name="operation" size="sm" />
                       </div>
-                      <label for="password">Work Center</label>
+                      <label for="workcenter">Work Center</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Work Center" name="workcenter" size="sm" />
+                        <argon-input v-model="input.workcenter" type="text" placeholder="Work Center" name="workcenter" size="sm" />
                       </div>
-                      <label for="part-family">Part Family</label>
+                      <label for="partfamily">Part Family</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Family" name="partfamily" size="sm" />
+                        <argon-input v-model="input.partfamily" type="text" placeholder="Part Family" name="partfamily" size="sm" />
                       </div>
-                      <label for="part-family">Part Name</label>
+                      <label for="partname">Part Name</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Name" name="partname" size="sm" />
+                        <argon-input v-model="input.partname" type="text" placeholder="Part Name" name="partname" size="sm" />
                       </div>
-                      <label for="part-family">Part Number</label>
+                      <label for="partnumber">Part Number</label>
                       <div class="mb-4">
-                        <argon-input type="text" placeholder="Part Number" name="partnumber" size="sm" />
+                        <argon-input v-model="input.partnumber" type="text" placeholder="Part Number" name="partnumber" size="sm" />
                       </div>
                       <div class="text-center">
-                        <RouterLink to="/checksheet/checksheet-detail-insp"><argon-button class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Search
-                        </argon-button></RouterLink>
+                        <RouterLink to="/checksheet/checksheet-detail-insp"></RouterLink><argon-button type="submit" class="mt-3 " variant="gradient" color="warning" fullWidth size="md">Search
+                        </argon-button>
                       </div>
                     </form>
                   </div>
@@ -50,8 +50,8 @@
   
   <script>
   import { mapActions } from 'pinia';
-  import d$auth from '@/stores/auth';
-  
+  //import d$auth from '@/stores/auth';
+  import store$admin from '@/stores/admin.js';
   import Navbar from "@/examples/PageLayout/Navbar.vue";
   import ArgonInput from "@/components/ArgonInput.vue";
   import ArgonSwitch from "@/components/ArgonSwitch.vue";
@@ -69,8 +69,11 @@
     data: () => ({
       // input
       input: {
-        name: 'dwi',
-        password: '123',
+        operation: 'Machining',
+        workcenter: 'Headman T-35',
+        partfamily: 'Cylinder',
+        partname: 'Cylinder 12201-40755',
+        partnumber: '12201-40755',
       },
         listImg: [
           {
@@ -81,14 +84,18 @@
         ],
     }),
     methods: {
-      //...mapActions(d$auth, ['a$login']),
-      async submitLogin() {
+      ...mapActions(store$admin, ['store$searchChecksheetForm']),
+      async checksheetSearchForm(e) {
         try {
-          //await this.a$login({ ...this.input });
+          e.preventDefault()
+          await this.store$searchChecksheetForm({ ...this.input });
+          alert('test search checksheet')
+          this.$router.push('/checksheet/checksheet-detail-insp')
+          
           //this.$router.replace({ name: 'Default' });
-          location.replace("/dashboard");
+          //location.replace("/dashboard");
         } catch (e) {
-          console.error(e);
+          alert(`Error!\n${e.message}`);
         }
       },
     },
